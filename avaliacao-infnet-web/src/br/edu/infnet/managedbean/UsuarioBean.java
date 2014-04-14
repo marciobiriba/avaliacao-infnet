@@ -11,8 +11,8 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
 import br.edu.infnet.dominio.Usuario;
-import br.edu.infnet.dto.UsuarioDTO;
 import br.edu.infnet.exception.RNException;
+import br.edu.infnet.negocio.UsuarioDTO;
 
 @ManagedBean(name="usuarioBean")
 @RequestScoped

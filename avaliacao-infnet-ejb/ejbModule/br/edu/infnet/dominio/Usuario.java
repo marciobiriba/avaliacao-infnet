@@ -27,7 +27,7 @@ public class Usuario {
 	private String idioma;
 	@Column
 	private boolean ativo;
-	
+	//TODO Criar colunas nas tabelas
 
 	public Integer getId() {
 		return id;
