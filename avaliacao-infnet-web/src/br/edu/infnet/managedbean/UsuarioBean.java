@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import br.edu.infnet.dominio.Usuario;
 import br.edu.infnet.exception.RNException;
 import br.edu.infnet.negocio.UsuarioDTO;
+import br.edu.infnet.negocio.UsuarioDTOImpl;
 
 @ManagedBean(name="usuarioBean")
 @RequestScoped
@@ -50,14 +51,14 @@ public class UsuarioBean implements Serializable{
 			context.addMessage(null, facesMessage);
 			return null;
 		}
-		UsuarioDTO UsuarioDTO = new UsuarioDTO();
-		UsuarioDTO.salvar(this.usuario);
+		UsuarioDTOImpl usuarioDTO = new UsuarioDTOImpl();
+		UsuarioDTOImpl.salvar(this.usuario);
 		return this.destinoSalvar;
 	}
 	public void efetuarLogin(ActionEvent actionEvent) {
 
-		UsuarioDTO UsuarioDTO = new UsuarioDTO();
-		Usuario usuarioConsulta = UsuarioDTO.buscarPorLogin(this.usuario.getLogin());
+		UsuarioDTOImpl usuarioDTO = new UsuarioDTOImpl();
+		Usuario usuarioConsulta = usuarioDTO.buscarPorLogin(this.usuario.getLogin());
 		String senha = this.usuario.getSenha();
 		if(!senha.equals(usuarioConsulta.getSenha())){
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login ou Senha inválidos!" , null);
@@ -77,8 +78,8 @@ public class UsuarioBean implements Serializable{
 	}
 
 	public String excluir() throws RNException{
-		UsuarioDTO UsuarioDTO = new UsuarioDTO();
-		UsuarioDTO.excluir(this.usuario);
+		UsuarioDTOImpl usuarioDTO = new UsuarioDTOImpl();
+		UsuarioDTOImpl.excluir(this.usuario);
 		this.lista = null;
 		return null;
 	}
@@ -88,7 +89,7 @@ public class UsuarioBean implements Serializable{
 		else
 			this.usuario.setAtivo(true);
 
-		UsuarioDTO UsuarioDTO = new UsuarioDTO();
+		UsuarioDTOImpl UsuarioDTO = new UsuarioDTOImpl();
 		UsuarioDTO.salvar(this.usuario);
 		return null;
 	}
@@ -106,7 +107,7 @@ public class UsuarioBean implements Serializable{
 	}
 	public List<Usuario> getLista() {
 		if(this.lista == null){
-			UsuarioDTO UsuarioDTO = new UsuarioDTO();
+			UsuarioDTOImpl UsuarioDTO = new UsuarioDTOImpl();
 			this.lista = UsuarioDTO.listar();
 		}
 		return this.lista;
