@@ -1,5 +1,7 @@
 package br.edu.infnet.dominio;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,6 +19,14 @@ public class Usuario {
 	private String login;
 	@Column(name = "senha")
 	private String senha;
+	@Column
+	private Date nascimento;
+	@Column
+	private String celular;
+	@Column
+	private String idioma;
+	@Column
+	private boolean ativo;
 	
 
 	public Integer getId() {
@@ -49,6 +59,37 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public Date getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getIdioma() {
+		return idioma;
+	}
+
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 	
