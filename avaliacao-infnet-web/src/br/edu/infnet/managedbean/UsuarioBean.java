@@ -52,7 +52,7 @@ public class UsuarioBean implements Serializable{
 			return null;
 		}
 		UsuarioDTOImpl usuarioDTO = new UsuarioDTOImpl();
-		UsuarioDTOImpl.salvar(this.usuario);
+		usuarioDTO.salvar(this.usuario);
 		return this.destinoSalvar;
 	}
 	public void efetuarLogin(ActionEvent actionEvent) {
@@ -79,7 +79,7 @@ public class UsuarioBean implements Serializable{
 
 	public String excluir() throws RNException{
 		UsuarioDTOImpl usuarioDTO = new UsuarioDTOImpl();
-		UsuarioDTOImpl.excluir(this.usuario);
+		usuarioDTO.excluir(this.usuario);
 		this.lista = null;
 		return null;
 	}
@@ -89,8 +89,8 @@ public class UsuarioBean implements Serializable{
 		else
 			this.usuario.setAtivo(true);
 
-		UsuarioDTOImpl UsuarioDTO = new UsuarioDTOImpl();
-		UsuarioDTO.salvar(this.usuario);
+		UsuarioDTOImpl usuarioDTO = new UsuarioDTOImpl();
+		usuarioDTO.salvar(this.usuario);
 		return null;
 	}
 	public Usuario getUsuario(){return usuario;}
@@ -107,8 +107,8 @@ public class UsuarioBean implements Serializable{
 	}
 	public List<Usuario> getLista() {
 		if(this.lista == null){
-			UsuarioDTOImpl UsuarioDTO = new UsuarioDTOImpl();
-			this.lista = UsuarioDTO.listar();
+			UsuarioDTOImpl usuarioDTO = new UsuarioDTOImpl();
+			this.lista = usuarioDTO.listar();
 		}
 		return this.lista;
 	}

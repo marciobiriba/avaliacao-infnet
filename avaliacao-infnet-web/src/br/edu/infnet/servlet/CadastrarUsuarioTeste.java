@@ -1,11 +1,17 @@
 package br.edu.infnet.servlet;
 
 import java.io.IOException;
+import java.util.Date;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.edu.infnet.dominio.Usuario;
+import br.edu.infnet.negocio.UsuarioDTO;
 
 /**
  * Servlet implementation class CadastrarUsuarioTeste
@@ -13,27 +19,38 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/CadastrarUsuarioTeste")
 public class CadastrarUsuarioTeste extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	@EJB
+	private UsuarioDTO usuarioDTO;
     /**
      * @see HttpServlet#HttpServlet()
      */
     public CadastrarUsuarioTeste() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		processaCadastro(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+	}
+	public void processaCadastro(HttpServletRequest request, HttpServletResponse response){
+		Usuario usuarioCadastro = new Usuario();
+		usuarioCadastro.setNome("Usuário Teste");
+		usuarioCadastro.setAtivo(true);
+		usuarioCadastro.setCelular("9999-9999");
+		usuarioCadastro.setIdioma("pt_BR");
+		usuarioCadastro.setLogin("teste");
+		usuarioCadastro.setNascimento(new Date(System.currentTimeMillis()));
+		usuarioCadastro.setSenha("teste");
+		
 	}
 
 }
