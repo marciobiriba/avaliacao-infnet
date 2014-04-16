@@ -1,6 +1,7 @@
 package br.edu.infnet.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.ejb.EJB;
@@ -16,15 +17,15 @@ import br.edu.infnet.negocio.UsuarioDTO;
 /**
  * Servlet implementation class CadastrarUsuarioTeste
  */
-@WebServlet("/CadastrarUsuarioTeste")
-public class CadastrarUsuarioTeste extends HttpServlet {
+@WebServlet("/ServletCadastrarUsuario")
+public class ServletCadastroUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
 	private UsuarioDTO usuarioDTO;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CadastrarUsuarioTeste() {
+    public ServletCadastroUsuario() {
         super();
     }
 
@@ -41,7 +42,7 @@ public class CadastrarUsuarioTeste extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
-	public void processaCadastro(HttpServletRequest request, HttpServletResponse response){
+	public void processaCadastro(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		Usuario usuarioCadastro = new Usuario();
 		usuarioCadastro.setNome("Usuário Teste");
 		usuarioCadastro.setAtivo(true);
@@ -50,6 +51,21 @@ public class CadastrarUsuarioTeste extends HttpServlet {
 		usuarioCadastro.setLogin("teste");
 		usuarioCadastro.setNascimento(new Date(System.currentTimeMillis()));
 		usuarioCadastro.setSenha("teste");
+		response.setContentType("text/html;charset=UTF-8");
+	        
+		try (PrintWriter out = response.getWriter()) {
+			
+	            out.println("<!DOCTYPE html>");
+	            out.println("<html>");
+	            out.println("<head>");
+	            out.println("<title>Servlet ServletCadastrar</title>");            
+	            out.println("</head>");
+	            out.println("<body>");
+	            out.println("Cadastrado!!!");
+	            out.println("<h1>Servlet ServletCadastrar at " + request.getContextPath() + "</h1>");
+	            out.println("</body>");
+	            out.println("</html>");
+	        }
 		
 	}
 
