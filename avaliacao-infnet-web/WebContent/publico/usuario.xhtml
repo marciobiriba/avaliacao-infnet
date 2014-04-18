@@ -11,7 +11,7 @@
 	<h1>Cadastro de usuários</h1>
 	<h:form id="cadastro">
 		<h:messages />
-		<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
+		<h:inputHidden value="#{usuarioBean.usuario.id}" />
 		<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
 
 		<h:panelGrid columns="2">
@@ -45,7 +45,7 @@
 			<h:selectOneMenu id="idioma" value="#{usuarioBean.usuario.idioma}">
 				<f:selectItem itemValue="pt_BR" itemLabel="Português" />
 				<f:selectItem itemValue="en_US" itemLabel="English" />
-				<f:selectItem itemValue="pt_BR" itemLabel="Espanol" />
+				<f:selectItem itemValue="pt_ES" itemLabel="Espanol" />
 			</h:selectOneMenu>
 
 			<h:outputLabel value="Login:" for="login" />
