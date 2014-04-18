@@ -12,7 +12,6 @@ import javax.inject.Inject;
 
 import br.edu.infnet.dominio.Usuario;
 import br.edu.infnet.exception.RNException;
-import br.edu.infnet.negocio.UsuarioDTO;
 import br.edu.infnet.negocio.UsuarioDTOImpl;
 
 @ManagedBean(name="usuarioBean")
