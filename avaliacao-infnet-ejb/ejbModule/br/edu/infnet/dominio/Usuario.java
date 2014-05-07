@@ -4,31 +4,38 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 @Entity
-@Table(name="usuario")
+@Table(name="USUARIO")
 public class Usuario {
 	@Id
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "ID", nullable=false)
 	private Integer id;
-	@Column(name = "nome")
+	@Column(name = "NOME", nullable=false)
 	private String nome;
-	@Column(name = "login")
-	private String login;
-	@Column(name = "senha")
+	@Column(name = "USERNAME", nullable=false)
+	private String username;
+	@Column(name = "SENHA", nullable=false)
 	private String senha;
-	@Column(name = "data_nasc")
+	@Column(name = "DATA_NASC", nullable=false)
+	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date nascimento;
-	@Column(name = "celular")
+	@Column(name = "CELULAR", nullable=false)
 	private String celular;
-	@Column(name = "idioma")
+	@Column(name = "IDIOMA", nullable=false)
 	private String idioma;
-	@Column(name = "ativo")
+	@Column(name = "ATIVO", nullable=false)
 	private boolean ativo;
 	@OneToOne
+	@PrimaryKeyJoinColumn(name="USER_AVALIACAO_ID", referencedColumnName="AVALIACAO_ID")
 	private Avaliacao avaliacao;
 	
 	//TODO Criar colunas nas tabelas
@@ -49,12 +56,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getSenha() {

@@ -28,7 +28,7 @@ public class CadastrarUsuario {
 		Usuario usuario = new Usuario();
 
 		usuario.setNome(nome);
-		usuario.setLogin(login);
+		usuario.setUsername(login);
 		usuario.setSenha(senha);
 		usuario.setNascimento(nascimento);
 		usuario.setCelular(celular);

@@ -4,18 +4,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="questao")
 public class Questao {
-
 	@Id
 	@Column(name = "id")
 	private Integer id;
 	@Column(name = "descricao")
 	private String descricao;
 	@ManyToOne
+	@PrimaryKeyJoinColumn(name="QUESTAO_AVALIACAO_ID", referencedColumnName="AVALIACAO_ID")
 	private Avaliacao avaliacao;
 
 	public Integer getId() {
