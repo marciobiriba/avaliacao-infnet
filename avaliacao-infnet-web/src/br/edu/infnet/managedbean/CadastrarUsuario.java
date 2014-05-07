@@ -30,12 +30,11 @@ public class CadastrarUsuario {
 		usuario.setNome(nome);
 		usuario.setLogin(login);
 		usuario.setSenha(senha);
-		usuario.setPerfil(perfil);
 		usuario.setNascimento(nascimento);
 		usuario.setCelular(celular);
 		usuario.setIdioma(idioma);
 		usuario.setAtivo(ativo);
-		usuario.setEmail(email);
+		
 		
 		usuarioDto.cadastrar(usuario);
 	}

@@ -5,13 +5,14 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="usuario")
 public class Usuario {
 	@Id
-	@Column(name = "idusuario")
+	@Column(name = "id")
 	private Integer id;
 	@Column(name = "nome")
 	private String nome;
@@ -19,14 +20,17 @@ public class Usuario {
 	private String login;
 	@Column(name = "senha")
 	private String senha;
-	@Column
+	@Column(name = "data_nasc")
 	private Date nascimento;
-	@Column
+	@Column(name = "celular")
 	private String celular;
-	@Column
+	@Column(name = "idioma")
 	private String idioma;
-	@Column
+	@Column(name = "ativo")
 	private boolean ativo;
+	@OneToOne
+	private Avaliacao avaliacao;
+	
 	//TODO Criar colunas nas tabelas
 
 	public Integer getId() {
@@ -90,6 +94,14 @@ public class Usuario {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+
+	public Avaliacao getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(Avaliacao avaliacao) {
+		this.avaliacao = avaliacao;
 	}
 	
 	
