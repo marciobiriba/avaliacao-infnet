@@ -9,12 +9,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="avaliacao")
+@Table(name="AVALIACAO")
 public class Avaliacao {
 	@Id
 	private Integer id;
 	@OneToOne(mappedBy="avaliacao")
-	private Usuario usuario;
+	private Aluno aluno;
 	@OneToMany(mappedBy="avaliacao")
 	private Set<Questao> questoes;
 	public Integer getId() {
@@ -23,11 +23,12 @@ public class Avaliacao {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Usuario getUsuario() {
-		return usuario;
+	
+	public Aluno getAluno() {
+		return aluno;
 	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 	public Set<Questao> getQuestoes() {
 		return questoes;

@@ -3,17 +3,21 @@ package br.edu.infnet.dominio;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
 @Table(name="USUARIO")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="PERFIL", discriminatorType = DiscriminatorType.STRING)
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -34,9 +38,6 @@ public class Usuario {
 	private String idioma;
 	@Column(name = "ATIVO", nullable=false)
 	private boolean ativo;
-	@OneToOne
-	@PrimaryKeyJoinColumn(name="USER_AVALIACAO_ID", referencedColumnName="AVALIACAO_ID")
-	private Avaliacao avaliacao;
 	
 	//TODO Criar colunas nas tabelas
 
@@ -102,14 +103,5 @@ public class Usuario {
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
-
-	public Avaliacao getAvaliacao() {
-		return avaliacao;
-	}
-
-	public void setAvaliacao(Avaliacao avaliacao) {
-		this.avaliacao = avaliacao;
-	}
-	
 	
 }

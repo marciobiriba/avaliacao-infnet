@@ -57,7 +57,7 @@ public class UsuarioBean implements Serializable{
 	public void efetuarLogin(ActionEvent actionEvent) {
 
 		UsuarioDTOImpl usuarioDTO = new UsuarioDTOImpl();
-		Usuario usuarioConsulta = usuarioDTO.buscarPorLogin(this.usuario.getLogin());
+		Usuario usuarioConsulta = usuarioDTO.buscarPorLogin(this.usuario.getUsername());
 		String senha = this.usuario.getSenha();
 		if(!senha.equals(usuarioConsulta.getSenha())){
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login ou Senha inválidos!" , null);
