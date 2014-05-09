@@ -21,12 +21,24 @@ public class AlunoDAOImpl extends AbstractDAO<Aluno> implements AlunoDAO{
 	public Avaliacao obterAvaliacao(Avaliacao avaliacao) {
 		Avaliacao avaliacaoRetorno = null;
 		try{
-			avaliacaoRetorno = (Avaliacao) getEntityManager().createQuery("Select a.avaliacao from Aluno")
+			avaliacaoRetorno = (Avaliacao) getEntityManager().createQuery("Select a.AVALIACAO from Aluno as a")
 					.getSingleResult();
 		}catch(NoResultException e){
 			log.warning("Sem resultado!");
 		}
 		return avaliacaoRetorno;
+	}
+
+	@Override
+	public Aluno obterUsername(String login) {
+		Aluno alunoRetorno = null;
+		try{
+			alunoRetorno = (Aluno) getEntityManager().createQuery("Select a.USERNAME from Aluno as a")
+					.getResultList();
+		}catch(NoResultException e){
+			log.warning("Sem resultado!");
+		}
+		return alunoRetorno;
 	}
 	
 }

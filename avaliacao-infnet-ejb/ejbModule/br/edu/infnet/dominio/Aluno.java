@@ -12,19 +12,21 @@ import javax.persistence.Temporal;
 @Entity
 @DiscriminatorValue(value="ALUNO")
 public class Aluno extends Usuario{
-	
+
 	@OneToOne
 	@PrimaryKeyJoinColumn(name="ALUNO_AVALIACAO_ID", referencedColumnName="AVALIACAO_ID")
 	private Avaliacao avaliacao;
 	@Column(name="TURMA")
 	private String turma;
 	@Column(name="MATRICULA")
-	private String matricula;
+	private Integer matricula;
 	@Column(name = "DATA_NASC", nullable=false)
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date nascimento;
 	@Column(name = "CELULAR", nullable=false)
 	private String celular;
+	
+	
 	
 	public Avaliacao getAvaliacao() {
 		return avaliacao;
@@ -38,7 +40,7 @@ public class Aluno extends Usuario{
 	public void setTurma(String turma) {
 		this.turma = turma;
 	}
-	public String getMatricula() {
+	public Integer getMatricula() {
 		return matricula;
 	}
 	public Date getNascimento() {
@@ -47,7 +49,7 @@ public class Aluno extends Usuario{
 	public String getCelular() {
 		return celular;
 	}
-	public void setMatricula(String matricula) {
+	public void setMatricula(Integer matricula) {
 		this.matricula = matricula;
 	}
 	public void setNascimento(Date nascimento) {
