@@ -9,7 +9,7 @@ import javax.persistence.criteria.CriteriaQuery;
 public abstract class AbstractDAO<T> {
 private Class<T> entidade;
 	
-	@PersistenceContext(unitName = "avaliacao-infnet-ejbPU")
+	@PersistenceContext(unitName = "avaliacao-infnet")
 	private EntityManager em;
 	
 	protected EntityManager getEntityManager(){

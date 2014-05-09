@@ -15,6 +15,8 @@ public class Aluno extends Usuario{
 	private Avaliacao avaliacao;
 	@Column(name="TURMA")
 	private String turma;
+	@Column(name="MATRICULA")
+	private String matricula;
 	
 	public Avaliacao getAvaliacao() {
 		return avaliacao;

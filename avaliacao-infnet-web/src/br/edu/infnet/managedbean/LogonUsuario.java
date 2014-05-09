@@ -7,4 +7,6 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class LogonUsuario {
 	
+	
+	
 }
