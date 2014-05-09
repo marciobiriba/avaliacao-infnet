@@ -11,7 +11,5 @@ public class UsuarioDAOImpl extends AbstractDAO<Usuario> implements UsuarioDAO{
 		super(Usuario.class);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 }

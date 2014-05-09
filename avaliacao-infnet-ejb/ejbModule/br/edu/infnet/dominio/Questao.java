@@ -10,17 +10,17 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="QUESTAO")
+@Table(name="questao")
 public class Questao {
 	@Id
-	@Column(name = "id")
+	@Column(name = "ID")
 	private Integer id;
-	@Column(name = "descricao")
+	@Column(name = "DESCRICAO")
 	private String descricao;
 	@ManyToOne
 	@PrimaryKeyJoinColumn(name="QUESTAO_AVALIACAO_ID", referencedColumnName="AVALIACAO_ID")
 	private Avaliacao avaliacao;
-	@Column(name = "likert")
+	@Column(name = "LIKERT")
 	@Enumerated(EnumType.STRING)
 	private Likert likert;
 

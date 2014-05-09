@@ -1,7 +1,5 @@
 package br.edu.infnet.dominio;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -12,16 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
 
 @Entity
-@Table(name="USUARIO")
+@Table(name="usuario")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="PERFIL", discriminatorType = DiscriminatorType.STRING)
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "ID", nullable=false)
+	@Column(name = "USER_ID", nullable=false)
 	private Integer id;
 	@Column(name = "NOME", nullable=false)
 	private String nome;
@@ -29,11 +26,6 @@ public class Usuario {
 	private String username;
 	@Column(name = "SENHA", nullable=false)
 	private String senha;
-	@Column(name = "DATA_NASC", nullable=false)
-	@Temporal(javax.persistence.TemporalType.DATE)
-	private Date nascimento;
-	@Column(name = "CELULAR", nullable=false)
-	private String celular;
 	@Column(name = "IDIOMA", nullable=false)
 	private String idioma;
 	@Column(name = "ATIVO", nullable=false)
@@ -71,21 +63,6 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-	public Date getNascimento() {
-		return nascimento;
-	}
-
-	public void setNascimento(Date nascimento) {
-		this.nascimento = nascimento;
-	}
-
-	public String getCelular() {
-		return celular;
-	}
-
-	public void setCelular(String celular) {
-		this.celular = celular;
 	}
 
 	public String getIdioma() {
